@@ -9,19 +9,60 @@ import java.util.Map;
 
 public interface IMethodsManager extends IRequestHandler {
 
+    /**
+     * Register a method
+     * @param IMethod
+     * @throws DuplicateMethodNameException
+     * @throws InvalidMethodDefinitionException
+     */
     void addMethod(IMethod IMethod) throws DuplicateMethodNameException, InvalidMethodDefinitionException;
 
+    /**
+     * Register methods
+     * @param IMethods
+     * @throws DuplicateMethodNameException
+     * @throws InvalidMethodDefinitionException
+     */
     void addMethods(List<IMethod> IMethods) throws DuplicateMethodNameException, InvalidMethodDefinitionException;
 
-    void removeMethod(IMethod IMethod);
+    /**
+     * Remove a method by it's instance
+     * @param method
+     */
+    void removeMethod(IMethod method);
 
+    /**
+     * Remove a method by it's name
+     * @param methodName
+     */
     void removeMethod(String methodName);
 
-    void overrideMethod(IMethod oldIMethod, IMethod newIMethod) throws InvalidMethodDefinitionException;
+    /**
+     * Override a method defined by it's instance
+     * @param oldMethod
+     * @param newMethod
+     * @throws InvalidMethodDefinitionException
+     */
+    void overrideMethod(IMethod oldMethod, IMethod newMethod) throws InvalidMethodDefinitionException;
 
-    void overrideMethod(String oldMethodName, IMethod newIMethod) throws InvalidMethodDefinitionException;
+    /**
+     * Override a method defined by it's name
+     * @param oldMethodName
+     * @param newMethod
+     * @throws InvalidMethodDefinitionException
+     */
+    void overrideMethod(String oldMethodName, IMethod newMethod) throws InvalidMethodDefinitionException;
 
+    /**
+     * Return true if method exists
+     * @param methodName
+     * @return methid exists
+     */
     boolean methodExist(String methodName);
 
+    /**
+     * Get registered methods
+     * @return methods
+     */
     Map<String, IMethod> getMethods();
 }

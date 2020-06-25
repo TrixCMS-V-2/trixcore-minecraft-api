@@ -6,6 +6,14 @@ import eu.trixcms.trixcore.api.response.IResponse;
 
 public interface IRequestHandler {
 
+    /**
+     * Dispatch a request.
+     * @param methodName
+     * @param args
+     * @return reponse
+     * @throws MethodNotFoundException
+     * @throws ArgsPreconditionFailedException
+     */
     IResponse dispatch(String methodName, String[] args) throws MethodNotFoundException, ArgsPreconditionFailedException;
 
 }
